@@ -1,0 +1,49 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["alerts"],
+  "properties": {
+    "alerts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["alert"],
+        "properties": {
+          "alert": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["matchers","startsAt","endsAt","comment","weekday"],
+            "properties": {
+              "matchers": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["alertname","namespace","app"],
+                "properties": {
+                  "alertname": {"type": "string"},
+                  "namespace": {"type": "string"},
+                  "app": {"type": "string"}
+                }
+              },
+              "startsAt": {
+                "type": "string",
+                "pattern": "^\\d\\d-\\d\\d"
+              },
+              "weekday": {
+                "type": "string",
+                "pattern": "^[1-7]{1,7}$"
+              },
+              "endsAt": {
+                "type": "string",
+                "pattern": "^\\d\\d-\\d\\d"
+              },
+              "comment": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

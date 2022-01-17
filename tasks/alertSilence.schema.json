@@ -1,0 +1,43 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["data"],
+    "properties": {
+        "status": {"type": "string"},
+        "data": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "id": {"type": "string"},
+                    "matchers": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "additionalProperties": false,
+                            "properties": {
+                                "name": {"type": "string"},
+                                "value": {"type": "string"},
+                                "isRegex": {"type": "boolean"},
+                                "isEqual": {"type": "boolean"}
+                            }
+                        }
+                    },
+                    "startsAt": {"type": "string"},
+                    "endsAt": {"type": "string"},
+                    "updatedAt": {"type": "string"},
+                    "createdBy": {"type": "string"},
+                    "comment": {"type": "string"},
+                    "status": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "state": {"type": "string"}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

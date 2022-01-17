@@ -1,0 +1,41 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: ammute
+spec:
+  schedule: "0 0 * * *"
+  jobTemplate:
+     spec:
+       template:
+         metadata:
+           labels:
+            aadpodidbinding: azure-pod-identity-binding-selector
+         spec:
+           restartPolicy: Never
+           containers:
+           - name: ammute
+             image: #IMAGEPATHINREPO
+             env:
+             - name: GITLAB_BRANCH
+               value: MSP-1561
+             - name: GITLAB_SOURCE_REPO_ID
+               value: "3297"
+             - name: AM_CLUSTER
+               value: eus1-platform-poc
+             - name: GITLAB_TOKEN
+               valueFrom:
+                 secretKeyRef:
+                   name: ammute-gitlab-token
+                   key: gitlab-token
+             volumeMounts:
+             - name: secrets-store-inline
+               mountPath: "/mnt/secrets-store"
+               readOnly: true
+           volumes:
+           - name: secrets-store-inline
+             csi:
+               driver: secrets-store.csi.k8s.io
+               readOnly: true
+               volumeAttributes:
+                 secretProviderClass: "sep-eus1-platform-le-ammute"

@@ -1,0 +1,44 @@
+---
+status: success
+data:
+- id: 6f0cfa76-4e84-491d-b579-0b543861e7bb
+  matchers:
+  - name: app
+    value: test
+    isRegex: false
+    isEqual: true
+  startsAt: '2021-11-18T12:25:10.634063644Z'
+  endsAt: '2021-11-18T14:25:07.108Z'
+  updatedAt: '2021-11-18T12:25:10.634063644Z'
+  createdBy: test user
+  comment: ddd
+- id: 8324d2ff-083b-45fd-85e9-b0cc5c0aa3c0
+  matchers:
+  - name: app
+    value: test2
+    isRegex: false
+    isEqual: true
+  - name: namespace
+    value: test
+    isRegex: false
+    isEqual: true
+  startsAt: '2021-11-18T12:22:37.81084516Z'
+  endsAt: '2022-11-18T12:22:06.356Z'
+  updatedAt: '2021-11-18T12:22:37.81084516Z'
+  createdBy: test user
+  comment: comment
+  status:
+    state: active
+- id: 2a19dc28-8184-40aa-aaba-515990ed9069
+  matchers:
+  - name: app
+    value: test
+    isRegex: false
+    isEqual: true
+  startsAt: '2021-11-16T15:00:23.084272842Z'
+  endsAt: '2021-11-16T17:00:12.23Z'
+  updatedAt: '2021-11-16T15:00:23.084272842Z'
+  createdBy: ddd
+  comment: ddd
+  status:
+    state: expired
